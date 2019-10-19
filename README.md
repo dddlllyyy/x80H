@@ -46,20 +46,6 @@ public:
             last->next=goal->next;
             delete goal;
             return head;
-        }
-                    
-            
-        
-        
-        
-            
-        
-        
-        
-            
-            
-        
-            
-        
+        }  
     }
 };
