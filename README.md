@@ -34,17 +34,41 @@ public:
             delete goal;
             return head;
         }
-        else if(i==lenth-1) //删除节点在末尾位置
-        {
-            delete goal;
-            last->next=NULL;
-            return head;
-        }
+      
         else//删除节点在中间其他位置
         {
             last->next=goal->next;
             delete goal;
             return head;
         }  
+    }
+};
+方法二双指针法
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        
+            if(head==NULL)
+            return head;
+        
+    
+           
+            ListNode * slow=head;
+            ListNode * fast=head;
+            for(int i=0;i<n;i++)
+                fast=fast->next;
+            if(!fast)//删除结点在起始位置情况
+            {
+                head=head->next;
+                return head;
+            }
+           //删除结点在其他位置情况
+            while(fast->next)
+            {
+                slow=slow->next;
+                fast=fast->next;
+            }
+            slow->next=slow->next->next;
+            return head;
     }
 };
